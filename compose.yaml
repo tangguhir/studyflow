@@ -1,15 +1,23 @@
 services:
   db:
-    image: postgres:16-alpine
+    # MySQL 8 — sama dengan database yang disediakan hosting lewat phpMyAdmin.
+    image: mysql:8.0
     restart: unless-stopped
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     environment:
-      POSTGRES_USER: studyflow
-      POSTGRES_PASSWORD: studyflow_dev_password
-      POSTGRES_DB: studyflow
+      MYSQL_ROOT_PASSWORD: studyflow_root_password
+      MYSQL_DATABASE: studyflow
+      MYSQL_USER: studyflow
+      MYSQL_PASSWORD: studyflow_dev_password
     ports:
-      - "5433:5432"
+      - "3307:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-ustudyflow", "-pstudyflow_dev_password"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
     volumes:
-      - studyflow_pg:/var/lib/postgresql/data
+      - studyflow_mysql:/var/lib/mysql
   mailpit:
     image: axllent/mailpit:latest
     restart: unless-stopped
@@ -17,4 +25,4 @@ services:
       - "1025:1025" # local SMTP sink; not a real delivery service
       - "8025:8025" # Mailpit inbox UI/API
 volumes:
-  studyflow_pg:
+  studyflow_mysql:

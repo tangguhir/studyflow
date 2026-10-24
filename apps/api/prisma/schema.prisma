@@ -1,54 +1,64 @@
 generator client {
   provider = "prisma-client-js"
 }
+
 datasource db {
-  provider = "postgresql"
+  // MySQL / MariaDB — kompatibel dengan phpMyAdmin di shared hosting.
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
 model User {
-  id String @id @default(cuid())
-  email String @unique
-  name String
-  passwordHash String
-  createdAt DateTime @default(now())
-  tasks Task[]
+  id            String            @id @default(cuid()) @db.VarChar(191)
+  email         String            @unique @db.VarChar(191)
+  name          String            @db.VarChar(255)
+  passwordHash  String            @db.VarChar(255)
+  createdAt     DateTime          @default(now())
+  tasks         Task[]
   notifications NotificationLog[]
 }
+
 model Task {
-  id String @id @default(cuid())
-  userId String
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  name String
-  course String
-  weight Float
-  difficulty Int
-  hours Float
-  deadline DateTime
-  startAt DateTime?
-  completedAt DateTime?
-  createdAt DateTime @default(now())
-  subtasks Subtask[]
+  id            String            @id @default(cuid()) @db.VarChar(191)
+  userId        String            @db.VarChar(191)
+  user          User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name          String            @db.Text
+  course        String            @db.VarChar(255)
+  weight        Float
+  difficulty    Int
+  hours         Float
+  deadline      DateTime
+  startAt       DateTime?
+  completedAt   DateTime?
+  createdAt     DateTime          @default(now())
+  subtasks      Subtask[]
   notifications NotificationLog[]
+
   @@index([userId, deadline])
 }
+
 model Subtask {
-  id String @id @default(cuid())
-  taskId String
-  task Task @relation(fields: [taskId], references: [id], onDelete: Cascade)
-  name String
-  done Boolean @default(false)
-  position Int @default(0)
+  id        String   @id @default(cuid()) @db.VarChar(191)
+  taskId    String   @db.VarChar(191)
+  task      Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  name      String   @db.Text
+  done      Boolean  @default(false)
+  position  Int      @default(0)
   createdAt DateTime @default(now())
+
+  @@index([taskId])
 }
+
 model NotificationLog {
-  id String @id @default(cuid())
-  userId String
-  taskId String
-  kind String
+  id           String   @id @default(cuid()) @db.VarChar(191)
+  userId       String   @db.VarChar(191)
+  taskId       String   @db.VarChar(191)
+  kind         String   @db.VarChar(32)
   scheduledFor DateTime
-  sentAt DateTime @default(now())
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  task Task @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  sentAt       DateTime @default(now())
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  task         Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
+
   @@unique([taskId, kind, scheduledFor])
   @@index([userId, sentAt])
 }

@@ -13,10 +13,18 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Tema mengikuti tombol global (atribut data-theme), bukan preferensi OS,
+     supaya pilihan pengguna tidak tertimpa otomatis. */
+  :root:not([data-theme]) {
+    --background: #ffffff;
+    --foreground: #171717;
   }
+}
+
+html[data-theme="dark"] {
+  --background: #0c0d16;
+  --foreground: #e8e9f4;
+  color-scheme: dark;
 }
 
 body {
