@@ -51,5 +51,38 @@ ok('jadwal: estimasi 24 jam tidak menduplikasi H-1', d.length === 1, d);
 ok('jadwal: estimasi 0 hanya H-1', svc.reminderSchedule(new Date('2026-11-20T18:00:00+07:00'), 0).length === 1);
 ok('jadwal: deadline invalid -> kosong', svc.reminderSchedule('bukan-tanggal', 2).length === 0);
 
+// ===== Pengingat ketiga: waktu rencana mulai =====
+// Contoh dari spesifikasi: rencana mulai 13 Nov 2026 13:30.
+const withStart = svc.reminderSchedule(
+  new Date('2026-11-20T18:00:00+07:00'),
+  4,
+  new Date('2026-11-13T13:30:00+07:00'),
+);
+ok('mulai: total tiga pengingat', withStart.length === 3, withStart.map((e) => e.kind));
+const startEvt = withStart.find((e) => e.kind === 'start');
+ok('mulai: dikirim tepat pada waktu rencana mulai',
+  !!startEvt && iso(startEvt.at) === iso(new Date('2026-11-13T13:30:00+07:00')), startEvt);
+ok('mulai: urutan jadwal naik (paling awal dulu)',
+  withStart.every((e, i) => i === 0 || withStart[i - 1].at <= e.at), withStart.map((e) => iso(e.at)));
+ok('mulai: jadwal H-1 dan H-N jam tetap ada',
+  withStart.some((e) => e.kind === 'deadline-1d') && withStart.some((e) => e.kind === 'deadline-hours'),
+  withStart.map((e) => e.kind));
+
+// Tanpa rencana mulai -> tetap dua pengingat (tidak ada email 'start').
+ok('mulai: tanpa rencana mulai tidak menambah email',
+  svc.reminderSchedule(new Date('2026-11-20T18:00:00+07:00'), 4, null).length === 2);
+
+// Rencana mulai yang sama persis dengan jadwal lain tidak boleh menduplikasi email.
+const dup = svc.reminderSchedule(
+  new Date('2026-11-20T18:00:00+07:00'),
+  4,
+  new Date('2026-11-20T14:00:00+07:00'),
+);
+ok('mulai: jadwal kembar tidak menghasilkan dua email', dup.length === 2, dup.map((e) => e.kind));
+
+// Rencana mulai tidak valid diabaikan, bukan merusak jadwal lain.
+ok('mulai: tanggal mulai invalid diabaikan',
+  svc.reminderSchedule(new Date('2026-11-20T18:00:00+07:00'), 4, 'bukan-tanggal').length === 2);
+
 console.log('\n===== JADWAL: ' + pass + ' pass, ' + fail + ' fail =====');
 process.exit(fail ? 1 : 0);

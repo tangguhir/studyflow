@@ -6,7 +6,7 @@ declare const fetch: any;
 
 export type MailResult = { ok: boolean; id?: string; error?: string };
 
-export type ReminderKind = 'deadline-1d' | 'deadline-hours' | 'manual';
+export type ReminderKind = 'deadline-1d' | 'deadline-hours' | 'start' | 'manual';
 
 export type ReminderTask = {
   id: string;
@@ -16,6 +16,7 @@ export type ReminderTask = {
   difficulty: number;
   hours: number;
   weight?: number | null;
+  startAt?: Date | string | null;
   subtasks?: Array<{ name: string; done: boolean; position?: number | null }>;
 };
 
@@ -155,17 +156,22 @@ export class EmailReminderService {
           ? 'besok'
           : `${daysLeft} hari lagi`;
 
+    const startAt = task.startAt ? (task.startAt instanceof Date ? task.startAt : new Date(task.startAt)) : null;
     const intro = kind === 'deadline-hours'
       ? `Tenggat tugas ini tinggal sekitar ${this.durationLabel(task.hours)} lagi — sepadan dengan estimasi pengerjaan yang kamu rencanakan. Sebaiknya mulai sekarang agar selesai tepat waktu.`
-      : kind === 'manual'
-        ? 'Berikut pengingat untuk tugasmu di StudyFlow.'
-        : `Tenggat tugas ini tinggal satu hari lagi (${this.formatDate(deadline)}). Sebaiknya siapkan waktunya mulai sekarang.`;
+      : kind === 'start'
+        ? `Ini waktu yang kamu rencanakan untuk mulai mengerjakan tugas ini${startAt && !Number.isNaN(startAt.getTime()) ? ` (${this.formatDate(startAt)})` : ''}. Yuk mulai sekarang agar tidak menumpuk menjelang tenggat.`
+        : kind === 'manual'
+          ? 'Berikut pengingat untuk tugasmu di StudyFlow.'
+          : `Tenggat tugas ini tinggal satu hari lagi (${this.formatDate(deadline)}). Sebaiknya siapkan waktunya mulai sekarang.`;
 
     const subject = kind === 'deadline-hours'
       ? `StudyFlow - ${this.durationLabel(task.hours)} lagi: ${task.name}`
-      : kind === 'manual'
-        ? `StudyFlow - Pengingat tugas: ${task.name}`
-        : `StudyFlow - Besok tenggat: ${task.name}`;
+      : kind === 'start'
+        ? `StudyFlow - Waktunya mulai: ${task.name}`
+        : kind === 'manual'
+          ? `StudyFlow - Pengingat tugas: ${task.name}`
+          : `StudyFlow - Besok tenggat: ${task.name}`;
 
     const rows: Array<[string, string]> = [
       ['Nama tugas', task.name],
@@ -174,6 +180,9 @@ export class EmailReminderService {
       ['Tingkat kesulitan', `${this.difficultyLabel(task.difficulty)} (${task.difficulty}/${this.difficultyScale(task.difficulty)})`],
       ['Estimasi pengerjaan', this.durationLabel(task.hours)],
     ];
+    if (startAt && !Number.isNaN(startAt.getTime())) {
+      rows.push(['Rencana mulai', this.formatDate(startAt)]);
+    }
     if (task.weight != null && !Number.isNaN(task.weight)) {
       rows.push(['Bobot nilai', `${String(task.weight).replace('.', ',')}%`]);
     }
@@ -298,12 +307,18 @@ export class EmailReminderService {
   }
 
   /**
-   * Jadwal pengingat otomatis untuk satu tugas:
+   * Jadwal pengingat otomatis untuk satu tugas (maksimal 3 email):
    * - `deadline-1d`    : tepat 1 hari (24 jam) sebelum tenggat.
    * - `deadline-hours` : N jam sebelum tenggat, dengan N = estimasi jam pengerjaan.
-   * Contoh: tenggat 13 Nov 14:50 dengan estimasi 1 jam → kirim 12 Nov 14:50 dan 13 Nov 13:50.
+   * - `start`          : tepat pada waktu rencana mulai yang diisi pengguna.
+   * Contoh: tenggat 13 Nov 14:50, estimasi 1 jam, rencana mulai 12 Nov 09:00
+   *   → 12 Nov 14:50, 13 Nov 13:50, dan 12 Nov 09:00.
    */
-  reminderSchedule(deadline: Date | string, hours: number): Array<{ kind: ReminderKind; at: Date }> {
+  reminderSchedule(
+    deadline: Date | string,
+    hours: number,
+    startAt?: Date | string | null,
+  ): Array<{ kind: ReminderKind; at: Date }> {
     const due = deadline instanceof Date ? deadline : new Date(deadline);
     if (Number.isNaN(due.getTime())) return [];
 
@@ -318,31 +333,59 @@ export class EmailReminderService {
       if (at.getTime() !== due.getTime() - DAY) events.push({ kind: 'deadline-hours', at });
     }
 
-    return events;
+    if (startAt) {
+      const start = startAt instanceof Date ? startAt : new Date(startAt);
+      if (!Number.isNaN(start.getTime())) {
+        // Hindari dua email pada detik yang sama untuk tugas yang sama.
+        if (!events.some((e) => e.at.getTime() === start.getTime())) {
+          events.push({ kind: 'start', at: start });
+        }
+      }
+    }
+
+    return events.sort((a, b) => a.at.getTime() - b.at.getTime());
+  }
+
+  /** Kirim dengan percobaan ulang agar gangguan jaringan sesaat tidak membuang pengingat. */
+  private async sendWithRetry(to: string, subject: string, text: string, html?: string): Promise<MailResult> {
+    let last: MailResult = { ok: false, error: 'tidak ada percobaan' };
+    for (let attempt = 0; attempt < 3; attempt++) {
+      last = await this.send(to, subject, text, html);
+      if (last.ok) return last;
+      // Kegagalan konfigurasi (domain belum diverifikasi / kredensial salah) tidak akan sembuh dengan retry.
+      if (/testing emails to your own email address|restricted_api_key|not configured|belum dikonfigurasi/i.test(String(last.error || ''))) return last;
+      if (attempt < 2) await new Promise((r) => setTimeout(r, 1500 * (attempt + 1)));
+    }
+    return last;
   }
 
   @Cron('* * * * *')
   async sendDue() {
     if (this.provider === 'none') return;
     const now = new Date();
-    // Toleransi 10 menit: bila cron sempat tertunda (server sibuk/sleep), pengingat tetap dikirim.
-    const windowStart = new Date(now.getTime() - 10 * 60_000);
+    // Toleransi 30 menit: bila cron sempat tertunda (server sibuk/restart), pengingat tetap terkirim.
+    const windowStart = new Date(now.getTime() - 30 * 60_000);
 
-    // Ambil kandidat: tugas belum selesai dengan tenggat antara 10 menit lalu s.d. H+1 (plus 1 jam).
-    // Penyaringan tepat dilakukan per tugas lewat reminderSchedule() agar jam estimasi ikut dihitung.
+    // Ambil kandidat: tugas belum selesai yang masih punya jadwal relevan.
+    // - tenggat antara 10 menit lalu s.d. H+1 (untuk H-1 hari & H-N jam)
+    // - ATAU rencana mulai sudah tiba (untuk pengingat waktu mulai)
     const tasks = await this.db.task.findMany({
       where: {
         completedAt: null,
-        deadline: { gte: windowStart, lte: new Date(now.getTime() + DAY + 3_600_000) },
+        emailReminder: true,
+        OR: [
+          { deadline: { gte: windowStart, lte: new Date(now.getTime() + DAY + 3_600_000) } },
+          { startAt: { not: null, gte: windowStart, lte: now } },
+        ],
       },
       include: { user: true, subtasks: true },
     });
 
     for (const t of tasks) {
-      // Tugas yang sudah selesai tidak pernah menerima pengingat apa pun.
-      if (t.completedAt) continue;
+      // Tugas yang sudah selesai atau yang email pengingatnya dimatikan tidak dikirimi apa pun.
+      if (t.completedAt || !t.emailReminder) continue;
 
-      for (const e of this.reminderSchedule(t.deadline, t.hours)) {
+      for (const e of this.reminderSchedule(t.deadline, t.hours, t.startAt)) {
         if (e.at < windowStart || e.at > now) continue;
         try {
           const prior = await this.db.notificationLog.findUnique({
@@ -350,8 +393,21 @@ export class EmailReminderService {
           });
           if (prior) continue;
 
-          const result = await this.sendTaskReminder(t.user.email, t.user.name, t, e.kind);
+          const mail = this.buildTaskReminder(t.user.name, t, e.kind);
+          const result = await this.sendWithRetry(t.user.email, mail.subject, mail.text, mail.html);
           if (!result.ok) {
+            // Catat kegagalan agar tidak mencoba berulang setiap menit untuk masalah konfigurasi yang sama.
+            if (/testing emails to your own email address|restricted_api_key/i.test(String(result.error || ''))) {
+              this.log.error(
+                `Email ${e.kind} ke ${t.user.email} ditolak penyedia: ${result.error} `
+                + 'Perbaiki pengirim: verifikasi domain di resend.com/domains lalu set RESEND_FROM ke alamat domain itu, '
+                + 'atau kosongkan RESEND_API_KEY dan pakai SMTP (mis. Gmail App Password).',
+              );
+              await this.db.notificationLog
+                .create({ data: { userId: t.userId, taskId: t.id, kind: e.kind, scheduledFor: e.at } })
+                .catch(() => undefined);
+              continue;
+            }
             this.log.error(`Email ${e.kind} ke ${t.user.email} gagal: ${result.error}`);
             continue;
           }

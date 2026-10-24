@@ -1,0 +1,53 @@
+2026-10-24T16:10:25: ⚠ Warning: Next.js ignored pnpm-workspace.yaml in C:\Users\HYPE AMD because it is outside the current Git repository (C:\Users\HYPE AMD\StudyFlow).
+2026-10-24T16:10:25:  To use this directory, set `outputFileTracingRoot` in your Next.js config.
+2026-10-24T16:10:25: 
+2026-10-24T16:13:31: ⚠ Warning: Next.js ignored pnpm-workspace.yaml in C:\Users\HYPE AMD because it is outside the current Git repository (C:\Users\HYPE AMD\StudyFlow).
+2026-10-24T16:13:31:  To use this directory, set `outputFileTracingRoot` in your Next.js config.
+2026-10-24T16:13:31: 
+2026-10-24T16:44:12: ⚠ Warning: Next.js ignored pnpm-workspace.yaml in C:\Users\HYPE AMD because it is outside the current Git repository (C:\Users\HYPE AMD\StudyFlow).
+2026-10-24T16:44:12:  To use this directory, set `outputFileTracingRoot` in your Next.js config.
+2026-10-24T16:44:12: 
+2026-10-24T16:44:25: Failed to proxy http://127.0.0.1:4000/api/auth/me Error: connect ECONNREFUSED 127.0.0.1:4000
+2026-10-24T16:44:25:     at ignore-listed frames {
+2026-10-24T16:44:25:   errno: -4078,
+2026-10-24T16:44:25:   code: 'ECONNREFUSED',
+2026-10-24T16:44:25:   syscall: 'connect',
+2026-10-24T16:44:25:   address: '127.0.0.1',
+2026-10-24T16:44:25:   port: 4000
+2026-10-24T16:44:25: }
+2026-10-24T16:44:25: Error: connect ECONNREFUSED 127.0.0.1:4000
+2026-10-24T16:44:25:     at ignore-listed frames {
+2026-10-24T16:44:25:   errno: -4078,
+2026-10-24T16:44:25:   code: 'ECONNREFUSED',
+2026-10-24T16:44:25:   syscall: 'connect',
+2026-10-24T16:44:25:   address: '127.0.0.1',
+2026-10-24T16:44:25:   port: 4000
+2026-10-24T16:44:25: }
+2026-10-24T16:44:25: Failed to proxy http://127.0.0.1:4000/api/auth/login Error: connect ECONNREFUSED 127.0.0.1:4000
+2026-10-24T16:44:25:     at ignore-listed frames {
+2026-10-24T16:44:25:   errno: -4078,
+2026-10-24T16:44:25:   code: 'ECONNREFUSED',
+2026-10-24T16:44:25:   syscall: 'connect',
+2026-10-24T16:44:25:   address: '127.0.0.1',
+2026-10-24T16:44:25:   port: 4000
+2026-10-24T16:44:25: }
+2026-10-24T16:44:25: Error: connect ECONNREFUSED 127.0.0.1:4000
+2026-10-24T16:44:25:     at ignore-listed frames {
+2026-10-24T16:44:25:   errno: -4078,
+2026-10-24T16:44:25:   code: 'ECONNREFUSED',
+2026-10-24T16:44:25:   syscall: 'connect',
+2026-10-24T16:44:25:   address: '127.0.0.1',
+2026-10-24T16:44:25:   port: 4000
+2026-10-24T16:44:25: }
+2026-10-24T17:19:03: ⚠ Warning: Next.js ignored pnpm-workspace.yaml in C:\Users\HYPE AMD because it is outside the current Git repository (C:\Users\HYPE AMD\StudyFlow).
+2026-10-24T17:19:03:  To use this directory, set `outputFileTracingRoot` in your Next.js config.
+2026-10-24T17:19:03: 
+2026-10-24T18:57:57: ⚠ Warning: Next.js ignored pnpm-workspace.yaml in C:\Users\HYPE AMD because it is outside the current Git repository (C:\Users\HYPE AMD\StudyFlow).
+2026-10-24T18:57:57:  To use this directory, set `outputFileTracingRoot` in your Next.js config.
+2026-10-24T18:57:57: 
+2026-10-24T19:14:03: ⚠ Warning: Next.js ignored pnpm-workspace.yaml in C:\Users\HYPE AMD because it is outside the current Git repository (C:\Users\HYPE AMD\StudyFlow).
+2026-10-24T19:14:03:  To use this directory, set `outputFileTracingRoot` in your Next.js config.
+2026-10-24T19:14:03: 
+2026-10-24T20:13:13: ⚠ Warning: Next.js ignored pnpm-workspace.yaml in C:\Users\HYPE AMD because it is outside the current Git repository (C:\Users\HYPE AMD\StudyFlow).
+2026-10-24T20:13:13:  To use this directory, set `outputFileTracingRoot` in your Next.js config.
+2026-10-24T20:13:13: 

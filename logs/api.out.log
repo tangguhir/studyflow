@@ -1,0 +1,267 @@
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +104ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[EmailReminderService] [39m[32mEmail via Resend aktif (from: StudyFlow <onboarding@resend.dev>).[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDiscoveryModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mScheduleModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mTasksController {/api/tasks}:[39m[38;5;3m +7ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks, GET} route[39m[38;5;3m +2ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks, POST} route[39m[38;5;3m +1ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/complete, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/reminder, PATCH} route[39m[38;5;3m +1ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/reorder, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/:sid, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/:sid, DELETE} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id, DELETE} route[39m[38;5;3m +1ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mNotificationsController {/api/notifications}:[39m[38;5;3m +0ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/status, GET} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/test, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/remind, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/auth}:[39m[38;5;3m +0ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/register, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/login, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/logout, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/me, GET} route[39m[38;5;3m +1ms[39m
+2026-10-24T15:12:35: [32m[Nest] 12932  - [39m24/10/2026, 15.12.35 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +30ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +21ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[EmailReminderService] [39m[32mEmail via Resend aktif (from: StudyFlow <onboarding@resend.dev>).[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDiscoveryModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mScheduleModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mTasksController {/api/tasks}:[39m[38;5;3m +7ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks, GET} route[39m[38;5;3m +2ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id, PATCH} route[39m[38;5;3m +1ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/complete, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/reminder, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks, POST} route[39m[38;5;3m +1ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/reorder, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/:sid, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/:sid, DELETE} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id, DELETE} route[39m[38;5;3m +1ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mNotificationsController {/api/notifications}:[39m[38;5;3m +0ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/status, GET} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/test, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/remind, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/auth}:[39m[38;5;3m +0ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/register, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/login, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/logout, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/me, GET} route[39m[38;5;3m +0ms[39m
+2026-10-24T15:15:24: [32m[Nest] 13736  - [39m24/10/2026, 15.15.24 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +15ms[39m
+2026-10-24T15:45:00: [32m[Nest] 13736  - [39m24/10/2026, 15.45.00 [32m    LOG[39m [38;5;3m[EmailReminderService] [39m[32mEmail start terkirim ke tanqquh@gmail.com (id: 01a16d15-aeb5-7333-b99c-904847723c7d)[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +29ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[EmailReminderService] [39m[32mEmail via Resend aktif (from: StudyFlow <onboarding@resend.dev>).[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDiscoveryModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mScheduleModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mTasksController {/api/tasks}:[39m[38;5;3m +9ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks, GET} route[39m[38;5;3m +3ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks, POST} route[39m[38;5;3m +1ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id, PATCH} route[39m[38;5;3m +1ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/complete, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/reminder, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks, POST} route[39m[38;5;3m +1ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/reorder, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/:sid, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/:sid, DELETE} route[39m[38;5;3m +1ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id, DELETE} route[39m[38;5;3m +0ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mNotificationsController {/api/notifications}:[39m[38;5;3m +0ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/status, GET} route[39m[38;5;3m +0ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/test, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/remind, POST} route[39m[38;5;3m +1ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/auth}:[39m[38;5;3m +0ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/register, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/login, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/logout, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/me, GET} route[39m[38;5;3m +0ms[39m
+2026-10-24T16:44:30: [32m[Nest] 3820  - [39m24/10/2026, 16.44.30 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +23ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +25ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[EmailReminderService] [39m[32mEmail via Resend aktif (from: StudyFlow <onboarding@resend.dev>).[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDiscoveryModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mScheduleModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mTasksController {/api/tasks}:[39m[38;5;3m +7ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks, GET} route[39m[38;5;3m +3ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks, POST} route[39m[38;5;3m +1ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/complete, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/reminder, PATCH} route[39m[38;5;3m +1ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/reorder, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/:sid, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/:sid, DELETE} route[39m[38;5;3m +1ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id, DELETE} route[39m[38;5;3m +0ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mNotificationsController {/api/notifications}:[39m[38;5;3m +0ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/status, GET} route[39m[38;5;3m +0ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/test, POST} route[39m[38;5;3m +1ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/remind, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/auth}:[39m[38;5;3m +0ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/register, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/login, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/logout, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/me, GET} route[39m[38;5;3m +0ms[39m
+2026-10-24T16:54:31: [32m[Nest] 25756  - [39m24/10/2026, 16.54.31 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +18ms[39m
+2026-10-24T17:22:06: [32m[Nest] 3104  - [39m24/10/2026, 17.22.06 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+2026-10-24T17:22:06: [32m[Nest] 3104  - [39m24/10/2026, 17.22.06 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +33ms[39m
+2026-10-24T17:22:06: [32m[Nest] 3104  - [39m24/10/2026, 17.22.06 [32m    LOG[39m [38;5;3m[EmailReminderService] [39m[32mEmail via Resend aktif (from: StudyFlow <onboarding@resend.dev>).[39m
+2026-10-24T17:22:06: [32m[Nest] 3104  - [39m24/10/2026, 17.22.06 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T17:22:06: [32m[Nest] 3104  - [39m24/10/2026, 17.22.06 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDiscoveryModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-10-24T17:22:06: [32m[Nest] 3104  - [39m24/10/2026, 17.22.06 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T17:22:06: [32m[Nest] 3104  - [39m24/10/2026, 17.22.06 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T17:22:06: [32m[Nest] 3104  - [39m24/10/2026, 17.22.06 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mScheduleModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-10-24T17:22:06: [32m[Nest] 3104  - [39m24/10/2026, 17.22.06 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T17:22:06: [32m[Nest] 3104  - [39m24/10/2026, 17.22.06 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-10-24T17:22:06: [32m[Nest] 3104  - [39m24/10/2026, 17.22.06 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T17:22:07: [32m[Nest] 3104  - [39m24/10/2026, 17.22.07 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mTasksController {/api/tasks}:[39m[38;5;3m +11ms[39m
+2026-10-24T17:22:07: [32m[Nest] 3104  - [39m24/10/2026, 17.22.07 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks, GET} route[39m[38;5;3m +3ms[39m
+2026-10-24T17:22:07: [32m[Nest] 3104  - [39m24/10/2026, 17.22.07 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks, POST} route[39m[38;5;3m +1ms[39m
+2026-10-24T17:22:07: [32m[Nest] 3104  - [39m24/10/2026, 17.22.07 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id, PATCH} route[39m[38;5;3m +1ms[39m
+2026-10-24T17:22:07: [32m[Nest] 3104  - [39m24/10/2026, 17.22.07 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/complete, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T17:22:07: [32m[Nest] 3104  - [39m24/10/2026, 17.22.07 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/reminder, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T17:22:07: [32m[Nest] 3104  - [39m24/10/2026, 17.22.07 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T17:22:07: [32m[Nest] 3104  - [39m24/10/2026, 17.22.07 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/reorder, PATCH} route[39m[38;5;3m +1ms[39m
+2026-10-24T17:22:07: [32m[Nest] 3104  - [39m24/10/2026, 17.22.07 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/:sid, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T17:22:07: [32m[Nest] 3104  - [39m24/10/2026, 17.22.07 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/:sid, DELETE} route[39m[38;5;3m +1ms[39m
+2026-10-24T17:22:07: [32m[Nest] 3104  - [39m24/10/2026, 17.22.07 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id, DELETE} route[39m[38;5;3m +0ms[39m
+2026-10-24T17:22:07: [32m[Nest] 3104  - [39m24/10/2026, 17.22.07 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mNotificationsController {/api/notifications}:[39m[38;5;3m +0ms[39m
+2026-10-24T17:22:07: [32m[Nest] 3104  - [39m24/10/2026, 17.22.07 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/status, GET} route[39m[38;5;3m +1ms[39m
+2026-10-24T17:22:07: [32m[Nest] 3104  - [39m24/10/2026, 17.22.07 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/test, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T17:22:07: [32m[Nest] 3104  - [39m24/10/2026, 17.22.07 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/remind, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T17:22:07: [32m[Nest] 3104  - [39m24/10/2026, 17.22.07 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/auth}:[39m[38;5;3m +0ms[39m
+2026-10-24T17:22:07: [32m[Nest] 3104  - [39m24/10/2026, 17.22.07 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/register, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T17:22:07: [32m[Nest] 3104  - [39m24/10/2026, 17.22.07 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/login, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T17:22:07: [32m[Nest] 3104  - [39m24/10/2026, 17.22.07 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/logout, POST} route[39m[38;5;3m +1ms[39m
+2026-10-24T17:22:07: [32m[Nest] 3104  - [39m24/10/2026, 17.22.07 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/me, GET} route[39m[38;5;3m +0ms[39m
+2026-10-24T17:22:07: [32m[Nest] 3104  - [39m24/10/2026, 17.22.07 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +20ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +23ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[EmailReminderService] [39m[32mEmail via Resend aktif (from: StudyFlow <onboarding@resend.dev>).[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDiscoveryModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mScheduleModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mTasksController {/api/tasks}:[39m[38;5;3m +8ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks, GET} route[39m[38;5;3m +2ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/complete, PATCH} route[39m[38;5;3m +1ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/reminder, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/reorder, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/:sid, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/:sid, DELETE} route[39m[38;5;3m +1ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id, DELETE} route[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mNotificationsController {/api/notifications}:[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/status, GET} route[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/schedule, GET} route[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/test, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/remind, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHealthController {/api/health}:[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/health, GET} route[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/auth}:[39m[38;5;3m +1ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/register, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/login, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/logout, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/me, GET} route[39m[38;5;3m +0ms[39m
+2026-10-24T18:57:58: [32m[Nest] 2424  - [39m24/10/2026, 18.57.58 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +14ms[39m
+2026-10-24T19:06:00: [32m[Nest] 2424  - [39m24/10/2026, 19.06.00 [32m    LOG[39m [38;5;3m[EmailReminderService] [39m[32mEmail start terkirim ke tanqquh@gmail.com (id: 01a16dcd-b4d4-79a2-8e42-a381a734d0d2)[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +21ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[EmailReminderService] [39m[32mEmail via Resend aktif (from: StudyFlow <onboarding@resend.dev>).[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDiscoveryModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mScheduleModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mTasksController {/api/tasks}:[39m[38;5;3m +7ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks, GET} route[39m[38;5;3m +2ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/complete, PATCH} route[39m[38;5;3m +1ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/reminder, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/reorder, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/:sid, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/:sid, DELETE} route[39m[38;5;3m +1ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id, DELETE} route[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mNotificationsController {/api/notifications}:[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/status, GET} route[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/schedule, GET} route[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/test, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/remind, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHealthController {/api/health}:[39m[38;5;3m +1ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/health, GET} route[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/auth}:[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/register, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/login, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/logout, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/me, GET} route[39m[38;5;3m +0ms[39m
+2026-10-24T19:14:03: [32m[Nest] 10488  - [39m24/10/2026, 19.14.03 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +15ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +26ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[EmailReminderService] [39m[32mEmail via Resend aktif (from: StudyFlow <onboarding@resend.dev>).[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDiscoveryModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mScheduleModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mTasksController {/api/tasks}:[39m[38;5;3m +9ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks, GET} route[39m[38;5;3m +5ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks, POST} route[39m[38;5;3m +1ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/complete, PATCH} route[39m[38;5;3m +1ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/reminder, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/reorder, PATCH} route[39m[38;5;3m +0ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/:sid, PATCH} route[39m[38;5;3m +1ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id/subtasks/:sid, DELETE} route[39m[38;5;3m +0ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/tasks/:id, DELETE} route[39m[38;5;3m +0ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mNotificationsController {/api/notifications}:[39m[38;5;3m +1ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/status, GET} route[39m[38;5;3m +0ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/schedule, GET} route[39m[38;5;3m +0ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/test, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/notifications/remind, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mHealthController {/api/health}:[39m[38;5;3m +0ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/health, GET} route[39m[38;5;3m +1ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/auth}:[39m[38;5;3m +0ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/register, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/login, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/logout, POST} route[39m[38;5;3m +0ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/me, GET} route[39m[38;5;3m +1ms[39m
+2026-10-24T20:13:09: [32m[Nest] 3820  - [39m24/10/2026, 20.13.09 [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +17ms[39m

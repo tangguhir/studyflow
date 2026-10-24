@@ -30,6 +30,8 @@ model Task {
   deadline      DateTime
   startAt       DateTime?
   completedAt   DateTime?
+  // Satu saklar untuk ketiga pengingat (H-1 hari, H-N jam, rencana mulai).
+  emailReminder Boolean           @default(true)
   createdAt     DateTime          @default(now())
   subtasks      Subtask[]
   notifications NotificationLog[]

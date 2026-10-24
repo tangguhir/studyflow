@@ -24,18 +24,55 @@ export class NotificationsController {
 
   @Get('status')
   status() {
+    const from = this.mail.fromAddress();
+    // Resend hanya mengizinkan alamat pemilik akun selama domain pengirim belum diverifikasi.
+    // Selama RESEND_FROM masih memakai domain uji resend.dev, email ke pengguna lain akan ditolak (HTTP 403).
+    const resendSandbox = this.mail.provider === 'resend' && /@resend\.dev>?$/i.test(from.trim());
     return {
       provider: this.mail.provider,
-      from: this.mail.fromAddress(),
+      from,
       appUrl: this.mail.appUrl(),
       configured: this.mail.provider !== 'none',
       localInbox: this.mail.localInbox,
-      deliversToRealInbox: this.mail.deliversToRealInbox,
+      deliversToRealInbox: this.mail.deliversToRealInbox && !resendSandbox,
+      resendSandbox,
       hint: this.mail.localInbox
         ? 'Email saat ini hanya masuk inbox uji lokal (Mailpit di http://localhost:8025), tidak sampai ke Gmail. Isi SMTP_HOST=smtp.gmail.com, SMTP_PORT=587, SMTP_USER, dan SMTP_PASS (App Password) di apps/api/.env.'
-        : this.mail.deliversToRealInbox
-          ? null
-          : 'Pengiriman email belum dikonfigurasi. Isi SMTP_* atau RESEND_API_KEY di apps/api/.env.',
+        : resendSandbox
+          ? 'Pengirim masih onboarding@resend.dev (alamat uji Resend), jadi email hanya bisa dikirim ke email pemilik akun Resend. Verifikasi domain di resend.com/domains lalu set RESEND_FROM ke alamat domain itu agar pengingat sampai ke semua pengguna.'
+          : this.mail.deliversToRealInbox
+            ? null
+            : 'Pengiriman email belum dikonfigurasi. Isi SMTP_* atau RESEND_API_KEY di apps/api/.env.',
+    };
+  }
+
+  /**
+   * Jadwal pengingat untuk seluruh tugas pengguna, dipakai tabel "Pengingat email"
+   * di halaman Tugas dan Dashboard agar pengguna melihat kapan email akan dikirim.
+   */
+  @Get('schedule')
+  async schedule(@Req() r: Request) {
+    const user = await this.db.user.findUnique({ where: { id: r['user'].id } });
+    if (!user) throw new BadRequestException('Akun tidak ditemukan.');
+    const tasks = await this.db.task.findMany({
+      where: { userId: user.id },
+      orderBy: { deadline: 'asc' },
+      select: { id: true, name: true, course: true, deadline: true, startAt: true, hours: true, emailReminder: true, completedAt: true },
+    });
+    return {
+      to: user.email,
+      provider: this.mail.provider,
+      tasks: tasks.map((t) => ({
+        id: t.id,
+        name: t.name,
+        course: t.course,
+        emailReminder: t.emailReminder,
+        completed: !!t.completedAt,
+        // Tugas selesai tidak akan dikirimi pengingat, jadi jadwalnya dikosongkan.
+        reminders: t.completedAt || !t.emailReminder
+          ? []
+          : this.mail.reminderSchedule(t.deadline, t.hours, t.startAt).map((e) => ({ kind: e.kind, at: e.at.toISOString() })),
+      })),
     };
   }
 
@@ -77,6 +114,7 @@ export class NotificationsController {
     });
     if (!task) throw new NotFoundException('Tugas tidak ditemukan.');
     if (task.completedAt) throw new BadRequestException('Tugas ini sudah selesai, pengingat tidak dikirim.');
+    if (!task.emailReminder) throw new BadRequestException('Pengingat email untuk tugas ini sedang dimatikan. Nyalakan dulu di tabel Pengingat email.');
 
     const result = await this.mail.sendTaskReminder(user.email, user.name, task, 'manual');
     if (!result.ok) throw new BadRequestException(`Gagal mengirim email: ${this.mailError(result)}`);
