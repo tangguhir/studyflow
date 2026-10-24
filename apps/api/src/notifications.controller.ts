@@ -29,6 +29,13 @@ export class NotificationsController {
       from: this.mail.fromAddress(),
       appUrl: this.mail.appUrl(),
       configured: this.mail.provider !== 'none',
+      localInbox: this.mail.localInbox,
+      deliversToRealInbox: this.mail.deliversToRealInbox,
+      hint: this.mail.localInbox
+        ? 'Email saat ini hanya masuk inbox uji lokal (Mailpit di http://localhost:8025), tidak sampai ke Gmail. Isi SMTP_HOST=smtp.gmail.com, SMTP_PORT=587, SMTP_USER, dan SMTP_PASS (App Password) di apps/api/.env.'
+        : this.mail.deliversToRealInbox
+          ? null
+          : 'Pengiriman email belum dikonfigurasi. Isi SMTP_* atau RESEND_API_KEY di apps/api/.env.',
     };
   }
 
@@ -69,6 +76,7 @@ export class NotificationsController {
       include: { subtasks: true },
     });
     if (!task) throw new NotFoundException('Tugas tidak ditemukan.');
+    if (task.completedAt) throw new BadRequestException('Tugas ini sudah selesai, pengingat tidak dikirim.');
 
     const result = await this.mail.sendTaskReminder(user.email, user.name, task, 'manual');
     if (!result.ok) throw new BadRequestException(`Gagal mengirim email: ${this.mailError(result)}`);

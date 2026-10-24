@@ -6,7 +6,7 @@ declare const fetch: any;
 
 export type MailResult = { ok: boolean; id?: string; error?: string };
 
-export type ReminderKind = 'start' | 'deadline-3d' | 'deadline-1d' | 'manual';
+export type ReminderKind = 'deadline-1d' | 'deadline-hours' | 'manual';
 
 export type ReminderTask = {
   id: string;
@@ -52,6 +52,17 @@ export class EmailReminderService {
       });
       this.provider = 'smtp';
       this.log.log(`Email via SMTP aktif (${process.env.SMTP_HOST}:${process.env.SMTP_PORT || 587}).`);
+      // Periksa kredensial SMTP saat start agar salah password/port langsung terlihat di log.
+      Promise.resolve()
+        .then(() => this.transporter.verify())
+        .then(() => this.log.log('Koneksi SMTP terverifikasi; siap mengirim email.'))
+        .catch((err: any) => this.log.error(`Koneksi SMTP gagal: ${err?.message || err}`));
+      if (this.localInbox) {
+        this.log.warn(
+          'SMTP_HOST menunjuk ke server lokal (Mailpit): email hanya masuk inbox uji di http://localhost:8025 dan TIDAK sampai ke Gmail. '
+          + 'Isi SMTP_HOST/PORT/USER/PASS milik penyedia email (mis. smtp.gmail.com:587) agar pengingat benar-benar sampai ke pengguna.',
+        );
+      }
     } else {
       this.provider = 'none';
       this.log.warn('Belum ada RESEND_API_KEY atau SMTP_HOST; pengiriman email nonaktif.');
@@ -60,6 +71,19 @@ export class EmailReminderService {
 
   fromAddress(): string {
     return process.env.RESEND_FROM || process.env.MAIL_FROM || 'StudyFlow <onboarding@resend.dev>';
+  }
+
+  /** Alamat SMTP lokal (Mailpit) hanya menampung email untuk pengujian, tidak mengirim ke Gmail. */
+  get localInbox(): boolean {
+    if (this.provider !== 'smtp') return false;
+    return /^(localhost|127\.0\.0\.1|::1|mailpit|host\.docker\.internal)$/i.test(String(process.env.SMTP_HOST || '').trim());
+  }
+
+  /** true bila email benar-benar bisa sampai ke inbox pengguna (Gmail dan sebagainya). */
+  get deliversToRealInbox(): boolean {
+    if (this.provider === 'resend') return true;
+    if (this.provider === 'smtp') return !this.localInbox;
+    return false;
   }
 
   appUrl(): string {
@@ -131,24 +155,24 @@ export class EmailReminderService {
           ? 'besok'
           : `${daysLeft} hari lagi`;
 
-    const intro = kind === 'start'
-      ? 'Jadwal mulai pengerjaan tugas ini sudah tiba. Yuk mulai dari subtugas pertamanya.'
+    const intro = kind === 'deadline-hours'
+      ? `Tenggat tugas ini tinggal sekitar ${this.durationLabel(task.hours)} lagi — sepadan dengan estimasi pengerjaan yang kamu rencanakan. Sebaiknya mulai sekarang agar selesai tepat waktu.`
       : kind === 'manual'
         ? 'Berikut pengingat untuk tugasmu di StudyFlow.'
-        : `Tenggat tugas ini ${leftLabel === 'sudah lewat' ? 'sudah lewat' : 'tinggal ' + leftLabel}. ${daysLeft <= 1 ? 'Sebaiknya diselesaikan hari ini.' : 'Sebaiknya bagi waktunya mulai sekarang.'}`;
+        : `Tenggat tugas ini tinggal satu hari lagi (${this.formatDate(deadline)}). Sebaiknya siapkan waktunya mulai sekarang.`;
 
-    const subject = kind === 'start'
-      ? `StudyFlow - Waktunya mulai: ${task.name}`
+    const subject = kind === 'deadline-hours'
+      ? `StudyFlow - ${this.durationLabel(task.hours)} lagi: ${task.name}`
       : kind === 'manual'
         ? `StudyFlow - Pengingat tugas: ${task.name}`
-        : `StudyFlow - ${daysLeft <= 0 ? 'Tenggat hari ini' : daysLeft === 1 ? 'Besok tenggat' : `Tenggat ${daysLeft} hari lagi`}: ${task.name}`;
+        : `StudyFlow - Besok tenggat: ${task.name}`;
 
     const rows: Array<[string, string]> = [
       ['Nama tugas', task.name],
       ['Mata kuliah', task.course],
       ['Deadline', `${this.formatDate(deadline)} (${leftLabel})`],
       ['Tingkat kesulitan', `${this.difficultyLabel(task.difficulty)} (${task.difficulty}/${this.difficultyScale(task.difficulty)})`],
-      ['Estimasi pengerjaan', `${String(task.hours).replace('.', ',')} jam`],
+      ['Estimasi pengerjaan', this.durationLabel(task.hours)],
     ];
     if (task.weight != null && !Number.isNaN(task.weight)) {
       rows.push(['Bobot nilai', `${String(task.weight).replace('.', ',')}%`]);
@@ -177,11 +201,12 @@ export class EmailReminderService {
       'Email otomatis dari StudyFlow. Kamu menerimanya karena pengingat tugas aktif di akunmu.',
     );
 
-    return { subject, text: textLines.join('\n'), html: this.taskHtml(subject, intro, rows, subtasks, doneCount) };
+    return { subject, text: textLines.join('\n'), html: this.taskHtml(subject, userName, intro, rows, subtasks, doneCount) };
   }
 
   private taskHtml(
     subject: string,
+    userName: string,
     intro: string,
     rows: Array<[string, string]>,
     subtasks: Array<{ name: string; done: boolean }>,
@@ -213,6 +238,7 @@ export class EmailReminderService {
       + `<div style="border:1px solid #e8e9f2;border-top:0;border-radius:0 0 12px 12px;padding:22px 24px">`
       + `<div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#5b5bd6;font-weight:700;margin-bottom:6px">StudyFlow</div>`
       + `<h2 style="font-size:18px;line-height:1.35;margin:0 0 10px">${this.escape(subject)}</h2>`
+      + `<p style="margin:0 0 6px;font-size:14px;color:#1f2333;line-height:1.5;font-weight:600">Halo, ${this.escape(userName)},</p>`
       + `<p style="margin:0 0 18px;font-size:14px;color:#4a4f66;line-height:1.5">${this.escape(intro)}</p>`
       + `<div style="font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:#7b8095;margin-bottom:2px">Detail tugas</div>`
       + `<table role="presentation" style="width:100%;border-collapse:collapse">${detailRows}</table>`
@@ -249,6 +275,13 @@ export class EmailReminderService {
   difficultyScale(value: number): number {
     return Number(value) > 3 ? 5 : 3;
   }
+  /** Label durasi ramah dibaca: 0,5 jam -> "30 menit", 4 jam -> "4 jam". */
+  durationLabel(hours: number): string {
+    const h = Number(hours);
+    if (!Number.isFinite(h) || h <= 0) return '-';
+    if (h < 1) return `${Math.round(h * 60)} menit`;
+    return `${String(h).replace('.', ',')} jam`;
+  }
 
   formatDate(value: Date): string {
     const d = value instanceof Date ? value : new Date(value);
@@ -264,36 +297,53 @@ export class EmailReminderService {
     return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
 
+  /**
+   * Jadwal pengingat otomatis untuk satu tugas:
+   * - `deadline-1d`    : tepat 1 hari (24 jam) sebelum tenggat.
+   * - `deadline-hours` : N jam sebelum tenggat, dengan N = estimasi jam pengerjaan.
+   * Contoh: tenggat 13 Nov 14:50 dengan estimasi 1 jam → kirim 12 Nov 14:50 dan 13 Nov 13:50.
+   */
+  reminderSchedule(deadline: Date | string, hours: number): Array<{ kind: ReminderKind; at: Date }> {
+    const due = deadline instanceof Date ? deadline : new Date(deadline);
+    if (Number.isNaN(due.getTime())) return [];
+
+    const events: Array<{ kind: ReminderKind; at: Date }> = [
+      { kind: 'deadline-1d', at: new Date(due.getTime() - DAY) },
+    ];
+
+    const hoursBefore = Number(hours);
+    if (Number.isFinite(hoursBefore) && hoursBefore > 0) {
+      const at = new Date(due.getTime() - hoursBefore * 3_600_000);
+      // Bila estimasi >= 24 jam, jadwal ini bertabrakan dengan H-1; cukup satu pengingat saja.
+      if (at.getTime() !== due.getTime() - DAY) events.push({ kind: 'deadline-hours', at });
+    }
+
+    return events;
+  }
+
   @Cron('* * * * *')
   async sendDue() {
     if (this.provider === 'none') return;
     const now = new Date();
-    const windowStart = new Date(now.getTime() - 60_000);
+    // Toleransi 10 menit: bila cron sempat tertunda (server sibuk/sleep), pengingat tetap dikirim.
+    const windowStart = new Date(now.getTime() - 10 * 60_000);
+
+    // Ambil kandidat: tugas belum selesai dengan tenggat antara 10 menit lalu s.d. H+1 (plus 1 jam).
+    // Penyaringan tepat dilakukan per tugas lewat reminderSchedule() agar jam estimasi ikut dihitung.
     const tasks = await this.db.task.findMany({
       where: {
         completedAt: null,
-        OR: [
-          { startAt: { gte: windowStart, lte: now } },
-          { deadline: { gte: new Date(windowStart.getTime() + 3 * DAY), lte: new Date(now.getTime() + 3 * DAY) } },
-          { deadline: { gte: new Date(windowStart.getTime() + DAY), lte: new Date(now.getTime() + DAY) } },
-        ],
+        deadline: { gte: windowStart, lte: new Date(now.getTime() + DAY + 3_600_000) },
       },
       include: { user: true, subtasks: true },
     });
 
     for (const t of tasks) {
-      const events: Array<{ kind: ReminderKind; at: Date }> = [];
-      if (t.startAt && t.startAt >= windowStart && t.startAt <= now) {
-        events.push({ kind: 'start', at: t.startAt });
-      }
-      for (const days of [3, 1] as const) {
-        const at = new Date(t.deadline.getTime() - days * DAY);
-        if (at >= windowStart && at <= now) {
-          events.push({ kind: days === 3 ? 'deadline-3d' : 'deadline-1d', at });
-        }
-      }
+      // Tugas yang sudah selesai tidak pernah menerima pengingat apa pun.
+      if (t.completedAt) continue;
 
-      for (const e of events) {
+      for (const e of this.reminderSchedule(t.deadline, t.hours)) {
+        if (e.at < windowStart || e.at > now) continue;
         try {
           const prior = await this.db.notificationLog.findUnique({
             where: { taskId_kind_scheduledFor: { taskId: t.id, kind: e.kind, scheduledFor: e.at } },

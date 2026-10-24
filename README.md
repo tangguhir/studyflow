@@ -24,9 +24,31 @@ Resend dipakai lebih dulu daripada SMTP: bila `RESEND_API_KEY` terisi, semua pen
 
 Alur pengiriman:
 
-- Cron di `EmailReminderService` berjalan tiap menit, mencari tugas dengan `remindStart` atau tenggat H-3/H-1, lalu mengirim email berisi nama tugas, mata kuliah, deadline (WIB), tingkat kesulitan, estimasi jam, bobot, dan daftar subtugas beserta status centangnya.
-- Setiap pengiriman dicatat di `NotificationLog` supaya email yang sama tidak terkirim dua kali.
-- Endpoint manual: `POST /api/notifications/remind` dengan body `{ "taskId": "..." }` untuk satu tugas, `POST /api/notifications/test` untuk email uji ke alamat akun yang login, dan `GET /api/notifications/status` untuk memeriksa penyedia aktif. Di UI, tombol ✉ pada kartu tugas memicu pengingat manual.
+- Cron di `EmailReminderService` berjalan tiap menit dan mengirim **dua** pengingat otomatis per tugas:
+  1. **H-1 hari** — tepat 24 jam sebelum tenggat.
+  2. **H-N jam** — N jam sebelum tenggat, dengan N = estimasi jam pengerjaan tugas.
+
+  Contoh: tenggat **13 Nov 14:50** dengan estimasi **1 jam** → email dikirim **12 Nov 14:50** dan **13 Nov 13:50**. Contoh lain: tenggat **18:00** dengan estimasi **4 jam** → email kedua pukul **14:00** hari yang sama.
+- Isi email: sapaan nama pengguna ("Halo, <nama>,"), nama tugas, mata kuliah, waktu tenggat (WIB), tingkat kesulitan, plus estimasi jam, bobot, dan daftar subtugas.
+- Tugas yang **sudah ditandai selesai tidak menerima pengingat apa pun**, baik H-1 maupun H-N jam.
+- Setiap pengiriman dicatat di `NotificationLog` (unik per tugas + jenis + jadwal) supaya email yang sama tidak terkirim dua kali. Jendela cron memakai toleransi 10 menit, jadi pengingat tetap terkirim bila server sempat tertunda.
+- Tombol ✉ pada setiap kartu tugas mengirim email uji berisi detail tugas tersebut (berguna memastikan konfigurasi email benar). Tombol ini menolak tugas yang sudah selesai.
+- Endpoint: `POST /api/notifications/remind` dengan body `{ "taskId": "..." }`, `POST /api/notifications/test`, dan `GET /api/notifications/status` (memeriksa penyedia aktif, `localInbox`, dan `deliversToRealInbox`).
+
+### Supaya email benar-benar sampai ke Gmail
+
+Mailpit (`SMTP_HOST=localhost`, port 1025) hanya **inbox uji lokal**: email masuk ke `http://localhost:8025` dan **tidak** dikirim ke Gmail. Untuk pengiriman nyata, isi kredensial SMTP asli di `apps/api/.env`:
+
+```
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=alamat@gmail.com
+SMTP_PASS=<App Password 16 karakter dari Google Account>
+MAIL_FROM=StudyFlow <alamat@gmail.com>
+```
+
+App Password dibuat di **Google Account → Keamanan → Verifikasi 2 langkah → Sandi aplikasi** (verifikasi 2 langkah wajib aktif). Setelah `.env` diubah, restart API. Log akan menampilkan `Koneksi SMTP terverifikasi` bila kredensial benar, atau `Koneksi SMTP gagal: ...` bila salah. `GET /api/notifications/status` juga menandai `localInbox: true` selama masih memakai Mailpit.
 
 Catatan Resend: selama domain belum diverifikasi, `onboarding@resend.dev` hanya bisa mengirim ke email pemilik akun Resend. Verifikasi domain lalu ganti `RESEND_FROM` ke alamat domain tersebut agar pengingat sampai ke pengguna lain.
 
