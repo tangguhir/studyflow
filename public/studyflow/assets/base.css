@@ -1,0 +1,23 @@
+/* Pengganti ringkas untuk Tailwind reset yang dipakai layout Next.js.
+   Hanya memuat dasar yang dibutuhkan; seluruh tampilan ada di study.css. */
+
+*,*::before,*::after{box-sizing:border-box}
+
+html.h-full,
+html{height:100%}
+
+html.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+body.min-h-full{min-height:100%}
+body.flex{display:flex}
+body.flex-col{flex-direction:column}
+
+body{margin:0;font-family:Arial,Helvetica,sans-serif}
+
+h1,h2,h3,h4,p,figure,blockquote,dl,dd{margin:0}
+ul,ol{list-style:none;margin:0;padding:0}
+img,svg,video,canvas{display:block;max-width:100%}
+button{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer}
+input,select,textarea{font:inherit;color:inherit}
+a{color:inherit;text-decoration:none}
+table{border-collapse:collapse}
